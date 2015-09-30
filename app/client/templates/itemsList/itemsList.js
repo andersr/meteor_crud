@@ -1,5 +1,5 @@
 Template.itemsList.helpers({
   allItems: function () {
-    return Items.find();
+    return Items.find({}, {sort: {createdAt: -1}});
   }
 });

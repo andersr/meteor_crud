@@ -1,5 +1,6 @@
 <template name="itemsList">
   <ul class="list-group">
+    {{> addItem}}
     {{#each allItems}}
        {{> singleItem}}
     {{/each}}
