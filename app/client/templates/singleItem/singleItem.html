@@ -1,5 +1,5 @@
 <template name="singleItem">
 <li class="list-group-item">
-  {{title}}
+  {{title}} <span class="pull-right">{{> deleteBtn currentItem=this collection="items"}}</span>
 </li>
 </template>
