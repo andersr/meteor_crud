@@ -5,7 +5,10 @@ Meteor.methods({
   addItem:function(itemTitle){
 
     check(itemTitle, String);
-    Items.insert({title: itemTitle});
+    Items.insert({
+      title: itemTitle,
+      createdAt: Date()
+    });
   }
 
 });
