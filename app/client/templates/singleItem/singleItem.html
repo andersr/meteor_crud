@@ -1,5 +1,14 @@
 <template name="singleItem">
+{{#if editing}}
 <li class="list-group-item">
-  {{title}} <span class="pull-right">{{> deleteBtn currentItem=this collection="items"}}</span>
-</li>
+  <form class="update-item two-col-row">
+    <input type="text" class="form-control item-title main-content" placeholder="Update..." value="{{title}}">
+     <span class="secondary-content"><button type="button" class="btn btn-default btn-xs cancel-edit">Cancel</button></span>
+  </form>
+  </li>
+  {{else}}
+  <li class="list-group-item edit-item clickable">
+    {{title}} <span class="pull-right">{{> deleteBtn currentItem=this collection="topics"}}</span>
+  </li>
+  {{/if}}
 </template>
