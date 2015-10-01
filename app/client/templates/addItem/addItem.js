@@ -5,12 +5,18 @@ Template.addItem.events({
 
     var itemTitle = template.find('.add-item-form .item-title').value;
 
-    Items.insert({
-      title: itemTitle,
-      createdAt: Date()
+    Meteor.call('addItem', itemTitle, function(error, result){
+      if (error){
+        console.log(error.reason);
+      } else {
+       $('.add-item-form')[0].reset();
+      }
     });
 
-    $('.add-item-form')[0].reset();
+    // Items.insert({
+    //   title: itemTitle,
+    //   createdAt: Date()
+    // });
 
   }
 
