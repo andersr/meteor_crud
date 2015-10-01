@@ -9,10 +9,13 @@ Template.singleItem.onCreated(function(){
   ;
 
   templateInstance.autorun(function(){
-    templateInstance.editing.set(
-      templateInstance.currentItem.get() ===
-      templateInstance.editableItem.get()
-    );
+    if (templateInstance) {
+      templateInstance.editing.set(
+        templateInstance.currentItem.get() ===
+        templateInstance.editableItem.get()
+      );
+    };
+  
   });
 
 });
