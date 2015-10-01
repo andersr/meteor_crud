@@ -20,12 +20,6 @@ Template.singleItem.onCreated(function(){
 
 });
 
-Template.singleItem.onDestroyed(function(){
-  templateInstance.editing.set(false);
-  templateInstance.editableItem.set("");
-});
-
-
 Template.singleItem.helpers({
   editing: function () {
     return Template.instance().editing.get();
@@ -35,7 +29,6 @@ Template.singleItem.helpers({
 Template.singleItem.events({
 
   'click .edit-item': function () {
-    console.log(Template.instance().currentItem.get());
     Template.instance().editableItem.set(this._id);
   },
 
