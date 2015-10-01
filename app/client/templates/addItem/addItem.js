@@ -13,11 +13,6 @@ Template.addItem.events({
       }
     });
 
-    // Items.insert({
-    //   title: itemTitle,
-    //   createdAt: Date()
-    // });
-
   }
 
 });

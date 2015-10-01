@@ -5,10 +5,27 @@ Meteor.methods({
   addItem:function(itemTitle){
 
     check(itemTitle, String);
+
     Items.insert({
       title: itemTitle,
       createdAt: Date()
     });
+  },
+
+  updateItem: function(itemAttributes){
+
+    check(itemAttributes, {
+      id:    String,
+      title: String
+    });
+
+    Items.update({ _id:itemAttributes.id },
+    {
+      $set: {
+        title: itemAttributes.title
+      }
+    });
+
   },
 
   removeFromCollection: function(collectionAttributes){

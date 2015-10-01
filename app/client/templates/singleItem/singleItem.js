@@ -4,7 +4,7 @@ Template.singleItem.onCreated(function(){
   templateInstance               = this;
 
   templateInstance.currentItem   = new ReactiveVar(templateInstance.data._id),
-  templateInstance.editableItem  = new ReactiveVar(""),
+  templateInstance.editableItem  = new ReactiveVar(),
   templateInstance.editing       = new ReactiveVar(false)
   ;
 
@@ -39,13 +39,19 @@ Template.singleItem.events({
   "submit .update-item": function(event, template){
     event.preventDefault();
 
-    Items.update({ _id:this._id }, {
-      $set : {
-        title: template.find('.update-item .item-title').value
-      }
+    var itemAttributes = {
+      id:    this._id,
+      title: template.find('.update-item .item-title').value
+    };
+
+    Meteor.call('updateItem', itemAttributes, function(error, result){
+      if (error){
+        console.log(error.reason);
+      } ;
     });
-    $('.update-item')[0].reset();
+
     Template.instance().editableItem.set("");
+
   }
 
 });
