@@ -9,6 +9,20 @@ Meteor.methods({
       title: itemTitle,
       createdAt: Date()
     });
+  },
+
+  removeFromCollection: function(collectionAttributes){
+
+    check(collectionAttributes, {
+      collection: String,
+      id:         String
+    });
+
+    Mongo.Collection.get(collectionAttributes.collection).remove({ _id: collectionAttributes.id });
+
   }
 
+
 });
+
+  
