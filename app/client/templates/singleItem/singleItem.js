@@ -15,7 +15,6 @@ Template.singleItem.onCreated(function(){
         templateInstance.editableItem.get()
       );
     };
-  
   });
 
 });
@@ -51,7 +50,6 @@ Template.singleItem.events({
     });
 
     Template.instance().editableItem.set("");
-
   }
 
 });
