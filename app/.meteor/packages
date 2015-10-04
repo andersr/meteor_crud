@@ -23,3 +23,4 @@ dburles:mongo-collection-instances
 reactive-var
 check
 ejson
+kit:basic-auth
